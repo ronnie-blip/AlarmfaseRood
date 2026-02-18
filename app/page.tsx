@@ -1,4 +1,4 @@
-import { getEpisodes } from "@/lib/rss";
+import { getEpisodes } from "../lib/rss";
 
 export default async function Page() {
   const episodes = await getEpisodes();
