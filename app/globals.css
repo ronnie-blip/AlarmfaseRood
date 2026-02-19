@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+html, body {
+  height: 100%;
+}
+body {
+  @apply bg-bg text-text antialiased;
+}
+a {
+  @apply text-text hover:text-red transition-colors;
+}
+.container {
+  @apply mx-auto max-w-6xl px-5;
+}

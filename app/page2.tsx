@@ -10,53 +10,55 @@ function formatDate(input: string) {
 
 export default async function HomePage() {
   const episodes = await getEpisodes();
+
   const latest = episodes[0];
   const more = episodes.slice(1, 4);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12">
-      <section className="grid gap-12 lg:grid-cols-2 lg:items-start">
-        {/* LINKS: TITEL + IMAGE + TEKST */}
-        <div className="flex flex-col items-start">
-          <h1 className="mb-6 text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
+    <main className="mx-auto max-w-6xl px-4 py-10">
+      <section className="grid gap-10 lg:grid-cols-2 lg:items-start">
+        {/* LINKS */}
+        <div className="space-y-6">
+          <h1 className="text-4xl font-extrabold uppercase tracking-tight text-red-500 sm:text-5xl">
             ALARMFASE ROOD
           </h1>
 
-          <div className="relative mb-6 w-full max-w-lg">
+          <div className="relative w-full max-w-xl">
             <Image
               src="/images/crew-strip.png"
               alt="Crew van hulpverleners"
-              width={1000}
-              height={420}
+              width={1100}
+              height={460}
               className="object-contain"
               priority
             />
           </div>
 
-          <p className="max-w-lg text-base leading-relaxed text-white/80">
-            Alarmfase Rood is de podcast waar de pieper afgaat en het echte verhaal
-            begint. Hulpverleners en professionals vertellen openhartig over
-            incidenten, keuzes en de impact achter de sirenes. Rauw, eerlijk en
-            met respect voor het vak. Wil jij jouw verhaal delen?{" "}
+          {/* ✅ AANGEPASTE HERO TEKST */}
+          <p className="text-base leading-relaxed text-white/80">
+            Alarmfase Rood is de podcast waar de pieper afgaat en het echte verhaal begint.
+            Hulpverleners en professionals vertellen openhartig over incidenten, keuzes
+            en de impact achter de sirenes. Rauw, eerlijk en met respect voor het vak.
+            Wil jij jouw verhaal delen?
+            {" "}
             <a
               href="mailto:info@alarmfaserood.nl"
               className="font-semibold underline underline-offset-4"
             >
               Mail ons
-            </a>
-            .
+            </a>.
           </p>
         </div>
 
-        {/* RECHTS: PLAYERS */}
-        <aside className="flex flex-col space-y-6">
+        {/* RECHTS */}
+        <aside className="space-y-6">
           {latest && (
             <div className="rounded-xl border border-white/10 bg-white/5 p-4">
               <p className="text-xs font-bold uppercase tracking-wider text-red-500">
                 Nieuwste aflevering
               </p>
 
-              <h2 className="mt-1 text-sm font-semibold leading-snug text-white">
+              <h2 className="mt-1 text-sm font-semibold leading-snug text-red-500">
                 {latest.title}
               </h2>
 
@@ -64,13 +66,15 @@ export default async function HomePage() {
 
               <audio
                 controls
-                className="mt-3 w-full"
+                className="mt-3 w-full scale-95 origin-left"
                 aria-label={latest.title}
               >
                 <source src={latest.audioUrl} />
               </audio>
             </div>
           )}
+
+          <div className="h-4" />
 
           {more.map((ep) => (
             <div key={ep.id} className="rounded-xl border border-white/10 bg-white/5 p-4">
@@ -79,7 +83,7 @@ export default async function HomePage() {
 
               <audio
                 controls
-                className="mt-2 w-full"
+                className="mt-2 w-full scale-95 origin-left"
                 aria-label={ep.title}
               >
                 <source src={ep.audioUrl} />
