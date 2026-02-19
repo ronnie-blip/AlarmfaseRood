@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getEpisodes } from "../lib/rss";
 
 export default async function Page() {
