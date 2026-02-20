@@ -55,7 +55,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {ep.duration ? ` • ${minutesFromDuration(ep.duration)} min` : ""}
       </div>
 
-      {ep.subtitle ? <p className="mt-4 text-lg text-muted max-w-3xl">{ep.subtitle}</p> : null}
+      {ep.subtitle ? <p className="mt-4 text-lg text-muted max-w-3xl">{(ep as any).subtitle}</p> : null}
 
       <div className="mt-8 rounded-2xl border border-white/10 bg-panel p-6">
         {ep.audioUrl ? (
