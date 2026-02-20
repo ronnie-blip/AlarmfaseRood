@@ -2,17 +2,13 @@ import { XMLParser } from "fast-xml-parser";
 import slugify from "slugify";
 
 export type Episode = {
-  id: string;
   title: string;
   slug: string;
   pubDate: string;
-  audioUrl: string;
-  audioType?: string;
-  duration?: string;
-  /** Short subtitle / summary when available (iTunes subtitle) */
+  description: string;
   subtitle?: string;
-  /** Full HTML description when available */
-  description?: string;
+  audioUrl: string;
+  duration?: string;
   imageUrl?: string;
 };
 
